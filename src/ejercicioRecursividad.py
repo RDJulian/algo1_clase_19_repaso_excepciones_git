@@ -1,8 +1,17 @@
 # Programar una funcion potencia que tenga como parametro una base y un exponente enteros, y devuelva el resultado.
 # NO SE PUEDE resolver con iteraciones. Debe ser una funcion recursiva.
 
+class IndeterminacionException(Exception):
+    """Excepcion lanzada cuando se intenta calcular una indeterminacion"""
+
 
 def potenciaExponentePositivo(base: int, exponente: int) -> int:
+    """
+    PRE: El exponente debe ser positivo. Solo deberia ser llamada desde potencia(), pero igual funcionaria si se llama
+    desde otra funcion.
+    POST: Devuelve la potencia de la base y el exponente ingresados. El caso 0 elevado a 0 devuelve 1, que dependiendo
+    el contexto puede ser correcto.
+    """
     if exponente == 0:
         return 1
     elif exponente == 1:
@@ -14,12 +23,11 @@ def potenciaExponentePositivo(base: int, exponente: int) -> int:
         return potenciaExponentePositivo(base, exponenteUno) * potenciaExponentePositivo(base, exponenteDos)
 
 
-class IndeterminacionException(Exception):
-    pass
-
-
 def potencia(base: int, exponente: int) -> int | float:
     """
+    PRE:
+    POST: Devuelve la potencia de la base y el exponente ingresados. Los casos de 0 elevado a 0 y 0 elevado a un
+    exponente negativo son indeterminados. En tales casos, lanza excepcion.
     TESTS:
     # Este caso se puede tomar como 1 o como indeterminado, dependiendo del uso.
     >>> potencia(0, 0)
@@ -51,17 +59,3 @@ def potencia(base: int, exponente: int) -> int | float:
         return 1 / potenciaExponentePositivo(base, exponente * -1)
     else:
         return potenciaExponentePositivo(base, exponente)
-
-
-def main():
-    try:
-        resultado = potencia(0, -1)
-    except IndeterminacionException:
-        resultado = "error"
-    except Exception:
-        print("No se que paso.")
-    finally:
-        print(resultado)
-
-
-main()

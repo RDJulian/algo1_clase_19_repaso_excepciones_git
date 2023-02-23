@@ -1,0 +1,6 @@
+# Ejemplo de conflicto entre diferentes versiones del repositorio remoto.
+
+CLASE DEL 22 DE FEBRERO
+Julian Ruiz Diaz
+Nicolas Ignacio Balciunas
+Benjamin Sardini

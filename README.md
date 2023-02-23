@@ -14,8 +14,8 @@ Complejidad: O(N^2)
 
 Ejercicio:<br>
 
-Programar una funcion potencia que tenga como parametro una base y un exponente enteros, y devuelva el resultado.
-NO SE PUEDE resolver con iteraciones. Debe ser una funcion recursiva.
+Programar una función potencia que tenga como parámetro una base y un exponente enteros, y devuelva el resultado.
+NO SE PUEDE resolver con iteraciones. Debe ser una función recursiva.
 
 Claves:
 
@@ -28,10 +28,10 @@ Claves:
 
 Claves:
 
-1. raise para levantar una excepcion (de Python o una personalizada).
-2. try para declarar un bloque de codigo a ejecutar, el cual puede lanzar una excepcion.
-3. except **excepcion** para declarar qué excepcion esperar, y que líneas ejecutar en caso de atraparla.
-4. finally para declarar líneas que se ejecutaran **siempre**, aun si no se atrapó ninguna excepcion.
+1. raise para levantar una excepción (de Python o una personalizada).
+2. try para declarar un bloque de código a ejecutar, el cual puede lanzar una excepción.
+3. except **excepción** para declarar qué excepción esperar, y que líneas ejecutar en caso de atraparla.
+4. finally para declarar líneas que se ejecutaran **siempre**, aun si no se atrapó ninguna excepción.
 
 ## Git:
 
@@ -56,6 +56,6 @@ o
 <li>git pull</li>
 <li>Resolver conflictos de ser necesario.</li>
 <li>git push</li>
-<li>Si se pushea codigo por primera vez, la terminal va a pedir credenciales. Generar un token en Settings > 
+<li>Si se pushea código por primera vez, la terminal va a pedir credenciales. Generar un token en Settings > 
 Developer Settings > Token e ingresarlo cuando pida contraseña.</li>
 </ol>

@@ -12,15 +12,22 @@ def potenciaExponentePositivo(base: int, exponente: int) -> int:
     POST: Devuelve la potencia de la base y el exponente ingresados. El caso 0 elevado a 0 devuelve 1, que dependiendo
     el contexto puede ser correcto.
     """
-    if exponente == 0:
+    if base == 0 and exponente == 0:
+        raise IndeterminacionException("La operacion ingresada es indeterminada.")
+    elif exponente == 0:
         return 1
     elif exponente == 1:
         return base
     else:
-        exponenteUno = exponenteDos = exponente // 2
-        if not exponente % 2 == 0:
-            exponenteDos += 1
-        return potenciaExponentePositivo(base, exponenteUno) * potenciaExponentePositivo(base, exponenteDos)
+        # Optimización del algoritmo: como se calcula practicamente lo mismo dos veces, se ahorran llamados si solo
+        # calculamos la potencia(base, exponente // 2) una sola vez, luego se multiplica y devuelve. Si es impar, se
+        # multiplica manualmente una vez más la base al resultado. De esta forma, el algoritmo hace log(n) llamados.
+        resultado = potenciaExponentePositivo(base, exponente // 2)
+        resultado *= resultado
+        if exponente % 2 == 0:
+            return resultado
+        else:
+            return base * resultado
 
 
 def potencia(base: int, exponente: int) -> int | float:
@@ -53,7 +60,7 @@ def potencia(base: int, exponente: int) -> int | float:
     >>> potencia(-2, -3)
     -0.125
     """
-    if base == 0 and exponente <= 0:
+    if base == 0 and exponente < 0:
         raise IndeterminacionException("La operacion ingresada es indeterminada.")
     elif exponente < 0:
         return 1 / potenciaExponentePositivo(base, exponente * -1)
